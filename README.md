@@ -34,7 +34,7 @@ It demonstrates key concepts for scalable backend systems: API Gateway, Kafka-ba
 - **Java 17**, Spring Boot 3.x  
 - **Spring Cloud Gateway**, Resilience4j  
 - **Kafka** (event-driven communication)  
-- **PostgreSQL** (transactional data)  
+- **MySQL** (transactional data)  
 - **Redis** (cache + rate limiter)  
 - **Elasticsearch** (search service)  
 - **Prometheus + Grafana** (metrics)  
