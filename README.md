@@ -35,3 +35,27 @@ flowchart LR
     P -->|Cache| Redis[(Redis)]
     O -->|Outbox| Kafka[(Kafka)]
     S --> ES[(Elasticsearch)]
+
+
+## 📂 Services
+- **api-gateway** – Routing, authentication (JWT), rate limiting  
+- **product-service** – Product CRUD, caching, event publishing  
+- **search-service** – Elasticsearch integration for queries  
+- **order-service** – Order management, Outbox pattern, Saga orchestration  
+- **inventory-service** – Stock reservation and release  
+- **payment-service** – Payment simulation (authorize/decline)  
+- **recommendation-service** – Trending products from Kafka events  
+- **notification-service** – Mock notifications (logs/email placeholder)  
+
+---
+
+## ⚙️ Tech Stack
+- **Java 17**, Spring Boot 3.x  
+- **Spring Cloud Gateway**, Resilience4j  
+- **Kafka** (event-driven communication)  
+- **PostgreSQL** (transactional data)  
+- **Redis** (cache + rate limiter)  
+- **Elasticsearch** (search service)  
+- **Prometheus + Grafana** (metrics)  
+- **Jaeger + OpenTelemetry** (distributed tracing)  
+- **k6** (load testing)  
