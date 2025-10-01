@@ -18,25 +18,6 @@ It demonstrates key concepts for scalable backend systems: API Gateway, Kafka-ba
 
 ---
 
-## 🏗️ Architecture
-```mermaid
-flowchart LR
-    A[API Gateway] -->|REST| P[Product Service]
-    A -->|REST| O[Order Service]
-    A -->|REST| S[Search Service]
-    A -->|REST| R[Recommendation Service]
-
-    O -->|Kafka| I[Inventory Service]
-    I -->|Kafka| Pay[Payment Service]
-    Pay -->|Kafka| O
-    O -->|Kafka| N[Notification Service]
-
-    P -->|Events| S
-    P -->|Cache| Redis[(Redis)]
-    O -->|Outbox| Kafka[(Kafka)]
-    S --> ES[(Elasticsearch)]
-
-
 ## 📂 Services
 - **api-gateway** – Routing, authentication (JWT), rate limiting  
 - **product-service** – Product CRUD, caching, event publishing  
@@ -58,4 +39,27 @@ flowchart LR
 - **Elasticsearch** (search service)  
 - **Prometheus + Grafana** (metrics)  
 - **Jaeger + OpenTelemetry** (distributed tracing)  
-- **k6** (load testing)  
+- **k6** (load testing)
+
+---
+
+## 🏗️ Architecture
+```mermaid
+flowchart LR
+    A[API Gateway] -->|REST| P[Product Service]
+    A -->|REST| O[Order Service]
+    A -->|REST| S[Search Service]
+    A -->|REST| R[Recommendation Service]
+
+    O -->|Kafka| I[Inventory Service]
+    I -->|Kafka| Pay[Payment Service]
+    Pay -->|Kafka| O
+    O -->|Kafka| N[Notification Service]
+
+    P -->|Events| S
+    P -->|Cache| Redis[(Redis)]
+    O -->|Outbox| Kafka[(Kafka)]
+    S --> ES[(Elasticsearch)]
+
+
+
